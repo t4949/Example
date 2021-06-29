@@ -96,7 +96,7 @@ namespace Service.Entities
 
         public static List<User> GetUsersByRole(int iRoleId)
         {
-            User user = new User();
+            User user = new User(); ffff
             List<SqlParameter> lParams = new List<SqlParameter>();
             lParams.Add(new SqlParameter("@iRoleId", iRoleId));
             try

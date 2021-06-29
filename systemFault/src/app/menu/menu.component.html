@@ -1,0 +1,102 @@
+
+<div class="container-fluid">
+<div class="row">
+  <div class="col-md-3 menu">
+  <mat-accordion >
+      <img src="/assets/img/NOTPROBLEM.jpg">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header class="disable_header">
+        <mat-panel-title class="title">
+            <i class="material-icons">
+                forum
+                </i>
+          הפניות שלי
+        </mat-panel-title>
+      </mat-expansion-panel-header >
+      <div class="routerLink"><a  [routerLink]="['pniot-list',false]" (click)="textHeader($event)"> רשימת פניות</a></div>
+      <div class="routerLink"><a  [routerLink]="['new-pnia']" (click)="textHeader($event)">פניה חדשה</a></div>
+</mat-expansion-panel>
+<mat-expansion-panel>
+  <mat-expansion-panel-header class="disable_header">
+    <mat-panel-title class="title">
+        <i class="material-icons">
+            person
+            </i>
+    פרטים אישיים
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div *ngIf="iRoleId==constants.MANAGER" class="routerLink"><a  [routerLink]="['register',false]" (click)="textHeader($event)"> הוספת משתמש  </a></div>
+  <div  class="routerLink"><a  [routerLink]="['register',true]" (click)="textHeader($event)">עריכת פרטים אישיים </a></div>
+   
+  <div *ngIf="iRoleId==constants.MANAGER" class="routerLink"><a  [routerLink]="['user']" (click)="textHeader($event)">רשימת משתמשים</a></div>
+   
+</mat-expansion-panel>
+<mat-expansion-panel>
+    <mat-expansion-panel-header class="disable_header">
+      <mat-panel-title class="title">
+          <i class="material-icons">
+              redo
+              </i>
+        היסטוריה
+      </mat-panel-title>
+    </mat-expansion-panel-header >
+    <div class="routerLink"><a  [routerLink]="['pniot-list',true]" (click)="textHeader($event)"> רשימת הסטורית פניות</a></div>
+    
+</mat-expansion-panel>
+<mat-expansion-panel>
+    <mat-expansion-panel-header class="disable_header">
+      <mat-panel-title class="title">
+        <i class="material-icons">
+          play_for_work
+          </i>
+    תמיכה מהירה 
+      </mat-panel-title>
+    </mat-expansion-panel-header >
+    <div class="routerLink"><a  [routerLink]="['quick-supprt']" (click)="textHeader($event)">תמיכה מהירה</a></div>
+    
+</mat-expansion-panel>
+<mat-expansion-panel *ngIf="iRoleId==constants.MANAGER">
+  <mat-expansion-panel-header class="disable_header">
+    <mat-panel-title class="title">
+      <i class="material-icons">
+        build
+        </i>
+ מכשירים
+    </mat-panel-title>
+  </mat-expansion-panel-header >
+  <div class="routerLink"><a  [routerLink]="['tools']" (click)="textHeader($event)">רשימת מכשירים</a></div>
+  <div class="routerLink"><a  [routerLink]="['insUpdtools',false]" (click)="textHeader($event)">הוספת מכשיר חדש</a></div>
+</mat-expansion-panel>
+<mat-expansion-panel *ngIf="iRoleId==constants.MANAGER">
+  <mat-expansion-panel-header class="disable_header">
+    <mat-panel-title class="title">
+       <!--For modern browsers-->
+
+<i class="material-icons">
+  language
+  </i>
+     ניהול קוד
+    </mat-panel-title>
+  </mat-expansion-panel-header >
+  <div class="routerLink"><a  [routerLink]="['sysTable']" (click)="textHeader($event)">ניהול קוד</a></div>
+</mat-expansion-panel>
+</mat-accordion>
+</div>
+<div class="col-md-9" style="padding:0 ;">
+     <div class="d-flex bd-highlight">
+        <!-- <div class="p-2 flex-grow-1 bd-highlight">{{title}}</div> -->
+        <div class="flex-grow-1"></div>
+        <div class="p-2 bd-highlight"> שלום {{proxy.User.nvFirstName}} {{proxy.User.nvLastName}}  </div> 
+        <div  class="p-2 bd-highlight nituk"><a (click)="NiTuk()">התנתק</a></div>
+      </div>
+      <div class="subMenu">
+        <div class="p-2 bd-highlight ">{{title}}</div>
+      </div>
+      <div class=" mt-4 container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+</div>
+</div>
+
+

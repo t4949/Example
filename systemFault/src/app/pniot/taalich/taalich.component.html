@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>{{this.data.pniaSubject}}</h1>
+<div  class="container">
+  <div *ngFor="let item of taalichPnia"  >
+  
+    <div class="block mb-5 mt-5">
+        <p>נכתב ע"י : {{item.nvTaalichPniaPoneName}}</p>
+        <p>תאריך : {{item.TaalichPniaDate}}</p>
+    <div >
+    <p-editor class="noEditor" readonly="true" class="textArea" placeholder="כתוב הודעה" [(ngModel)]="item.nvTaalichPniaContent" name="mesage" >
+      <p-header hidden>
+        <span class="ql-formats"></span>
+      </p-header>
+    </p-editor>
+  </div>
+  </div>
+
+</div>
+<div class="mt-5 blockEdit" >
+  <p-editor class="textArea mt-5" placeholder="כתוב הודעה" [(ngModel)]="lastTaalichPnia.nvTaalichPniaContent" name="mesage" >
+  </p-editor></div>
+  <div mat-dialog-actions class="d-flex justify-content-start mt-2">
+      <button mat-raised-button class="matraised-pink "  (click)="onNoClick()">ביטול</button>
+      <button mat-raised-button class="matraised-Yellow " (click)="saveTaalichPnia()" cdkFocusInitial>שלח</button>
+      <button mat-raised-button class="matraised-Green" (click)="movePniaToHistory()" cdkFocusInitial>סגירה</button>
+    </div>
+</div>

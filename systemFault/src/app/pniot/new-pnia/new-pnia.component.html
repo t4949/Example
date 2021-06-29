@@ -1,0 +1,114 @@
+
+
+<div class="container newPnia">
+    <form action="sendNewPnia()">
+          <div class="">
+      <div class="row">
+          
+                  <div class="col-md-4" >
+          <mat-form-field class="example-full-width" >
+            <input   type="text" name="pone" placeholder="שם משתמש" aria-label="Assignee" matInput [formControl]="usersControl"
+              [matAutocomplete]="user">
+            <mat-autocomplete #user="matAutocomplete" (optionSelected)='onSelectionChanged($event.option.value,1)'
+              [displayWith]="displayUserFn">
+              <mat-option *ngFor="let option of filterUsers | async" [value]="option">
+                {{option.viewValue}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field>
+              <!-- (dateChange)="fixTimeZone($event.value)" -->
+            <input type="datetime" matInput  [(ngModel)]="this.Pniot.dPniaDate"  name="date" 
+            [matDatepicker]="picker" placeholder=" תאריך"  #date="ngModel">
+            <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <!-- <mat-error *ngif="Pniot.dPniaDate<today">תאריך לא חוקי</mat-error> -->
+          </mat-form-field>
+        </div>
+        <div class="col-md-4" >
+          <label>בחר רמת דחיפות</label>
+          <p-rating  style="direction:ltr;"[(ngModel)]="this.Pniot.iPriority" [cancel]="false" name="iPriority"></p-rating>
+        </div>
+      </div>
+      
+      <div class="row">
+          <div class="col-md-4">
+          <mat-form-field class="example-full-width">
+            <input required type="text" placeholder=" מכשיר" aria-label="Assignee" matInput [formControl]="toolsControl"
+              [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)='onSelectionChanged($event.option.value,3)'
+              [displayWith]="displayFn">
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                  {{option.nvSysTableRowName}}
+            </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+           </div>
+       
+          <!-- <div class="col-md-4">
+          <mat-form-field class="example-full-width">
+            <input required type="text" [value]="this.Pniot.nvKindFaultName" placeholder="בחר תקלה" aria-label="Assignee"
+              matInput [formControl]="faultsControl" [matAutocomplete]="aaa">
+            <mat-autocomplete #aaa="matAutocomplete" [displayWith]="displayToolFaultFn"
+              (optionSelected)='onSelectionChanged($event.option.value,2)'>
+              <mat-option *ngFor="let option of filteredToolFaultOptions | async" [value]="option">
+                {{option.nvSysTableRowName}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+           </div> -->
+          
+          <div class="col-md-4">
+            <mat-form-field>
+                <input matInput placeholder="נושא" [(ngModel)]="this.Pniot.nvSubject"  name="nvSubject">
+             </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <div *ngIf="this.proxy.User.iRoleId==constants.MANAGER&&this.dialogData" class="col-md-4">
+                <mat-form-field class="example-full-width">
+                  <input required type="text" name="status" placeholder="סטטוס" aria-label="Assignee" matInput [formControl]="statuesControl"
+                    [matAutocomplete]="statues">
+                  <mat-autocomplete #statues="matAutocomplete" (optionSelected)='onSelectionChanged($event.option.value,4)'
+                    [displayWith]="displayStatuesFn">
+                    <mat-option *ngFor="let option of filterStatues | async" [value]="option">
+                      {{option.nvSysTableRowName}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </div>
+        
+        </div>
+          
+      </div>
+      <div class="row">
+        
+      </div>
+   </div>
+<div class="mt-5 container">
+  <div *ngIf="!this.dialogData">
+    <!-- placeholder="כתוב הודעה"  -->
+    <div class="blockEdit" >
+    <p-editor class="textArea" placeholder="כתוב הודעה" [(ngModel)]="this.Pniot.nvdescription" name="mesage">
+    </p-editor>
+  </div>
+  </div>
+    <div mat-dialog-actions class="d-flex justify-content-end mt-2" >
+      <!-- *ngIf="this.dialogData" -->
+    <div *ngIf="this.dialogData">
+      <button mat-raised-button class="matraised-Yellow mr-2"  (click)="closeWindow()"
+        cdkFocusInitial>ביטול</button>
+        <button mat-raised-button class="matraised-pink mr-2"  (click)="AddPnia()"
+        cdkFocusInitial>עדכן</button>
+    </div>
+    <div *ngIf="!this.dialogData">
+      <button mat-raised-button class="matraised-pink mr-2"  (click)="AddPnia()"
+        cdkFocusInitial>שלח</button></div>
+      </div>
+
+</div>
+
+
+</form>
+</div>

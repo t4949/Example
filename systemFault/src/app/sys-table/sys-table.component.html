@@ -1,0 +1,86 @@
+<!-- <div class=" mt-2 container"> -->
+  <div class="oldWrapper container">
+  <div class="wraper">
+  <div class="item row">
+      <div class="col-md-7">
+      <mat-form-field class= "select example-full-width">
+        <input required type="text" placeholder="בחר טבלה" aria-label="Assignee" matInput [formControl]="tableControl" [matAutocomplete]="aaa">
+        <mat-autocomplete  #aaa="matAutocomplete" [displayWith]="displayTableFn" (optionSelected)='onSelectionChanged($event.option.value,1)'>
+          <mat-option *ngFor="let option of filteredTableOptions | async" [value]="option">
+            {{option.nvSysTableRowName}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      </div>
+    </div>
+    <div class="item">
+      <button  mat-raised-button class="newvalue matraised-Yellow mr-2"  (click)="NewRow()"
+        cdkFocusInitial>הוספת חדש</button>
+    </div>
+  </div>
+<!-- </div> -->
+<!-- <div class="mt-5 pl-5 container"> -->
+      <!-- <div  mat-dialog-actions class="d-flex justify-content-end mt-2" > -->
+          <!-- *ngIf="this.dialogData" -->
+      
+             
+        <!-- </div> -->
+<div class="tableWrapper">
+  <!-- // iSysTableRowId
+  // nvSysTableRowName -->
+<table matSort mat-table [dataSource]="dataSource" >
+    <!-- <ng-container matColumnDef="iSysTableRowId">
+        <th class="header" mat-header-cell *matHeaderCellDef>קוד
+          <mat-form-field class="filter" floatLabel="never">
+            <mat-label>קוד</mat-label>
+            <input matInput [formControl]="iSysTableRowIdFilter">
+          </mat-form-field>
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.iSysTableRowId}} </td>
+      </ng-container> -->
+  <ng-container matColumnDef="nvSysTableRowName">
+    <th class="header" mat-header-cell *matHeaderCellDef> ערך
+      <mat-form-field class="filter" floatLabel="never">
+        <mat-label>ערך</mat-label>
+        <input matInput [formControl]="nvSysTableRowNameFilter">
+      </mat-form-field>
+    </th>
+    <td mat-cell *matCellDef="let element"> {{element.nvSysTableRowName}} </td>
+  </ng-container>
+ 
+
+  <ng-container matColumnDef="edit">
+    <th mat-header-cell *matHeaderCellDef>
+    </th>
+    <td mat-cell *matCellDef="let element">
+      <button md-raised-button class="matraised-Yellow tableButton" (click)="Edit(element)">
+          <i class="material-icons">
+              explicit
+              </i>
+      </button>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef>
+    </th>
+    <td mat-cell *matCellDef="let element">
+      <button md-raised-button class="matraised-Green tableButton" (click)="delete(element.iSysTableRowId)">
+        <mat-icon aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
+
+</div>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+.wrapButton{
+    width: 11vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: auto;
+    margin-left: auto; 
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 20vh;
+}

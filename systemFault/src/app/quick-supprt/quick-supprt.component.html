@@ -1,0 +1,18 @@
+<div class="container">
+ <div class="col-md-4">
+  <mat-form-field class="example-full-width">
+    <input required type="text"  placeholder="בחר תקלה" aria-label="Assignee"
+      matInput [formControl]="faultsControl" [matAutocomplete]="aaa">
+    <mat-autocomplete #aaa="matAutocomplete" [displayWith]="displayToolFaultFn"
+      (optionSelected)='onSelectionChanged($event.option.value,2)'>
+      <mat-option *ngFor="let option of filteredToolFaultOptions | async" [value]="option">
+        {{option.nvSysTableRowName}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+   </div>
+   <mat-option *ngFor="let option of listSupport">
+    {{option.nvSysTableRowName}}
+  </mat-option>
+ 
+  </div>

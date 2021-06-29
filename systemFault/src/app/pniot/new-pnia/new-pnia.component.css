@@ -1,0 +1,113 @@
+/* 
+
+.mat-form-field{
+  text-align: right !important;
+  }
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  mat-slider {
+    width: 190px;
+  }
+
+  .example-form {
+    min-width: 150px;
+    max-width: 200px;
+    width: 100%;
+  }
+
+ 
+  .example-full-width {
+    width: 100%;
+  }
+  .text-area {
+    text-align: right; 
+    height: 60px;
+    direction: ltr;
+  }
+
+  .buttons-wrapper--item{
+    padding: 6px 8px 6px 0px;
+  }
+  .new-pnia{
+    font-size: 22px;
+    padding: 27px;
+  }
+  ::ng-deep.ql-editor{
+    min-height: 20vh;
+    text-align: right !important;
+   
+  }
+  
+  ::ng-deep.ui-widget.ui-editor-container.ui-corner-all{
+    width: 55vw;
+    padding-top: 3em;
+  }
+  /* .new-pnia-container{
+    padding-top: 12vh
+  } */
+
+
+
+ 
+ 
+/* 
+ .blockEdit{
+    border-top: 1px solid#d04675;
+  }
+  .textArea {
+   
+    text-align: left; 
+  }
+  ::ng-deep.ql-editor{
+    min-height: 20vh;
+    text-align: right !important;
+   
+  }
+  
+  ::ng-deep.ui-widget.ui-editor-container.ui-corner-all{
+    width: 55vw;
+    padding-top: 3em;
+  }
+  ::ng-deep.mat-form-field-wrapper{
+    width: 100% !important;
+  } */
+    
+     ::ng-deep .mat-calendar-body-cell-content.mat-calendar-body-today{
+       background-color: #88a9b0;
+     }
+     /* ::ng-deep .mat-dialog-container {
+         width: 60vw !important;
+       height: 60vh !important;
+    overflow-x: auto;
+        } */
+        .container{
+          /* width:50vw; */
+          direction: rtl !important;
+        }
+        label{
+          font-size: 9px;
+        }
+        .blockEdit{
+          border-top: 1px solid#436171;
+        }
+        .textArea {
+          text-align: left; 
+         
+        }
+        ::ng-deep .ql-editor{
+          min-height: 15vh !important;
+          text-align: right;
+        }
+         .newPnia{
+          text-align: center;
+          padding:6vh 4em 1em 4em !important
+            
+          }

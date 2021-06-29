@@ -1,0 +1,187 @@
+<!-- <h3>רישום</h3>
+<span class="ui-float-label">
+  <input id="float-input1" [(ngModel)]="this.User.nvFirstName" type="text" size="30" name="nvFirstName" pInputText>
+  <label for="float-input1">שם פרטי </label></span>
+<span class="ui-float-label">
+  <input id="float-input1" [(ngModel)]="this.User.nvLastName" type="text" size="30" name="nvFirstName" pInputText>
+  <label for="float-input1">שם משפחה </label></span>
+<span class="ui-float-label">
+  <input id="float-input1" [(ngModel)]="this.User.nvEmail" type="text" size="30" name="nvFirstName" pInputText>
+  <label for="float-input1">מייל </label></span>
+<span class="ui-float-label">
+  <input id="float-input2" type="text" size="30" [(ngModel)]="this.User.nvPassword" name="nvPassword" pInputText>
+  <label for="float-input2">סיסמא</label>
+</span>
+<br><br>{{this.User.nvFirstName}}
+<br><br>{{this.User.nvLastName}}
+<br><br>{{this.User.nvPassword}}
+<br><br>{{this.User.nvEmail}}
+<br>
+<button class="btn btn-danger" (click)="Register()">רישום</button> -->
+<mat-card *ngIf="displayUser!=-1"><!--צריך לעשות ngif-->
+     <div class="row">
+           <div class="col-md-4">
+    <div><strong>{{this.User.nvFirstName}} {{this.User.nvLastName}}</strong></div>
+     <br/>
+    <div class="row">
+       <div class="col-md-0.5">
+         <i class="material-icons">mail_outline </i>
+        </div>
+    <div class="col-md-3">
+     <label>{{this.User.nvEmail}}</label>
+    </div>
+    </div><br/>
+ 	       <div class="row">
+  	         <div class="col-md-0.5"> <i class="material-icons">phone</i>
+  	         </div>
+  	         <div class="col-md-3">
+	            <label>{{this.User.nvTel}}</label>
+  	           </div>
+  	         </div>
+  	  </div>
+  	  </div>
+  	
+  </mat-card><br/>
+ 
+<form name="ngForm" >
+<div class="container register" >
+  <div class="">
+
+  <div class="row">
+    <div class="col-md-4">
+        <mat-form-field>
+            <input required type="text"  [(ngModel)]="this.User.nvUserName" matInput placeholder="שם משתמש" name="nvUserName">
+          </mat-form-field>
+    </div>
+    <div class="col-md-4">
+        <mat-form-field>
+            <input required type="text" [(ngModel)]="this.User.nvFirstName" matInput placeholder="שם פרטי" name="nvFirstName">
+          </mat-form-field><br>
+         
+    </div>
+    <div class="col-md-4">
+        <mat-form-field>
+            <input required  type="text" [(ngModel)]="this.User.nvLastName" matInput placeholder="שם משפחה" name="nvLastName">
+          </mat-form-field>
+    </div>
+  </div>
+  <!-- <h3 *ngIf="proxy.User.iRoleId==constants.USER">עריכת פרטים אישיים</h3>
+  <h3 *ngIf="proxy.User.iRoleId==constants.MANAGER">הוספת משתמש</h3> -->
+  
+ <div class="row">
+    <!-- <div class="col-md-4">
+        <mat-form-field>
+            <input type="password" [(ngModel)]="this.User.nvPassword" matInput placeholder="סיסמא" name="nvPassword">
+          </mat-form-field>
+    </div> -->
+     <div class="col-md-4">
+        <mat-form-field>
+            <input required name="password" [(ngModel)]="this.User.nvPassword" matInput placeholder="סיסמא" [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+    </div>
+    <!-- <div class="col-md-4">
+        <mat-form-field>
+            <input required  type="email" [(ngModel)]="this.User.nvEmail" matInput placeholder="מייל" name="nvEmail">
+          </mat-form-field>
+    </div> -->
+    <div class="col-md-4">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="מייל" [formControl]="emailFormControl" name="nvEmail">
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+             כתובת המייל אינו תקין
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+             מייל <strong>חובה </strong>
+            </mat-error>
+          </mat-form-field>
+      </div>
+    <div class="col-md-4">
+        <!-- <mat-form-field>
+            <input type="text" [(ngModel)]="this.User.nvTel" matInput placeholder="טלפון" name="nvTel">
+          </mat-form-field> -->
+          <mat-form-field class="example-full-width">
+              <input type="text" matInput placeholder="טלפון" [formControl]="PhoneNumber" name="nvTel">
+              <mat-error *ngIf="PhoneNumber.hasError('pattern') && !PhoneNumber.hasError('required')">
+               מספר הטלפון אינו תקין
+              </mat-error>
+              <mat-error *ngIf="PhoneNumber.hasError('required')">
+               טלפון <strong>חובה </strong>
+              </mat-error>
+            </mat-form-field>
+    </div>
+ </div>
+  <div class="row">
+      <div class="col-md-4">
+          <mat-form-field class="example-full-width">
+            <input required type="text" placeholder="בחר חדר" aria-label="Assignee" matInput [formControl]="roomsControl" [matAutocomplete]="aaa" name="nvRoom">
+            <mat-autocomplete  #aaa="matAutocomplete" [displayWith]="displayRoomFn" (optionSelected)='onSelectionChanged($event.option.value,1)'>
+              <mat-option *ngFor="let option of filteredRoomOptions | async" [value]="option">
+                {{option.nvSysTableRowName}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="example-full-width">
+              <input required type="text" placeholder="בחר קומה" aria-label="Assignee" matInput [formControl]="floorsControl" [matAutocomplete]="bbb" name="nvFloor">
+              <mat-autocomplete  #bbb="matAutocomplete" [displayWith]="displayFloorFn" (optionSelected)='onSelectionChanged($event.option.value,2)'>
+                <mat-option *ngFor="let option of filteredFloorOptions | async" [value]="option">
+                  {{option.nvSysTableRowName}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+              <mat-form-field class="example-full-width">
+                <input required type="text" placeholder="בחר אגף" aria-label="Assignee" matInput [formControl]="departmentControl" [matAutocomplete]="ccc" name="nvDepartment">
+                <mat-autocomplete  #ccc="matAutocomplete" [displayWith]="displayDepartmentFn" (optionSelected)='onSelectionChanged($event.option.value,3)'>
+                  <mat-option *ngFor="let option of filteredDepartmentOptions | async" [value]="option">
+                    {{option.nvSysTableRowName}}
+                  </mat-option>
+                </mat-autocomplete>
+             </mat-form-field>
+            </div>
+  </div>
+  <div class="row">
+      <div class="col-md-4" *ngIf="proxy.User.iRoleId==constants.MANAGER">
+          <mat-form-field class="example-full-width">
+            <input required type="text" placeholder="בחר הרשאה" aria-label="Assignee" matInput [formControl]="rolesControl" [matAutocomplete]="ddd" name="nvRole">
+            <mat-autocomplete  #ddd="matAutocomplete" [displayWith]="displayRoleFn" (optionSelected)='onSelectionChanged($event.option.value,4)'>
+              <mat-option *ngFor="let option of filteredRoleOptions | async" [value]="option">
+                {{option.nvSysTableRowName}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="example-full-width">
+                <!-- <input required type="text" [(ngModel)]="this.User.nvID" matInput placeholder="תז" name="nvID"> -->
+                <input type="text" matInput placeholder="ת'ז" [formControl]="IDFormControl" name="nvID">
+                <mat-error *ngIf="IDFormControl.hasError('pattern') && !IDFormControl.hasError('required')">
+                  מספר ת"ז אינו תקין
+                </mat-error>
+                <mat-error *ngIf="IDFormControl.hasError('required')">
+                 מספר ת"ז <strong>חובה </strong>
+                </mat-error>
+              </mat-form-field>
+        </div>
+  </div>
+    <div class="mt-5 pl-5 container">
+  <div  mat-dialog-actions class="d-flex justify-content-end mt-2" >
+      <!-- *ngIf="this.dialogData" -->
+    <div>
+        <!-- loginForm.form.invalid -->
+      <button [disabled]="disabledButton()" mat-raised-button class="matraised-Yellow mr-2"  (click)="Register()"
+        cdkFocusInitial>שמירה</button>
+    </div>
+          <button *ngIf="this.dialogData" mat-raised-button class="matraised-pink mr-2"  (click)="closeWindow()"
+        cdkFocusInitial>ביטול</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+

@@ -1,0 +1,41 @@
+/* .form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 20vh;
+}
+
+.wrapButton{
+    width: 11vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: auto;
+    margin-left: auto; 
+}
+h3{
+text-align: center;
+} */
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 20vh;
+    margin-top:0.5rem;
+}
+
+.wrapButton{
+    width: 11vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: auto;
+    margin-left: auto; 
+}
+h5{
+text-align: center;
+}
+::ng-deep.mat-raised-button{
+    size: 1rem;
+}

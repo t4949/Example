@@ -1,0 +1,27 @@
+
+
+     .block{
+       border: 1px solid #436171;
+       border-radius: 15px;
+       padding: 24px;
+      
+       
+     }
+.blockEdit{
+  border-top: 1px solid#436171;
+}
+.textArea {
+  text-align: left; 
+ 
+}
+::ng-deep .mat-dialog-container {
+  height: auto !important;
+}
+::ng-deep .ql-editor{
+  min-height: 15vh !important;
+  text-align: right;
+}
+.mat-dialog-actions{
+  direction: ltr !important;
+}
+   

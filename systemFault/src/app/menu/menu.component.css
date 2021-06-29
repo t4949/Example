@@ -1,0 +1,95 @@
+.menu{
+    height:100vh;
+    background-color: #02283b;
+    padding: 0px 0px 0px 0px;  
+    /* I dont want */
+}
+
+.mat-form-field{
+    text-align: right !important;
+    }
+  a{
+    color: white !important;
+    text-decoration: none;
+    padding: 8px;
+    margin-right: 21px;
+    opacity: 0.7;
+}
+ a:hover{
+    color:#88a9b0 !important ;
+    opacity: 1;
+}
+ a:focus{
+    color:#88a9b0!important ;
+}
+::ng-deep.routerLink{
+    padding: 7px;
+ 
+    font-size: 1.0rem !important;
+}
+::ng-deep.mat-expansion-panel-header{
+    height: 50px !important; 
+   background-color:#012e44 ;
+   box-shadow: none;
+  border-radius: none;
+    
+}
+/* .mat-expansion-panel-header:not([aria-disabled=true]){
+   height: 50px !important; 
+   background-color:#ec94b2 ;
+   } */
+::ng-deep.mat-expansion-panel-header-title{
+   color: white !important;
+}
+.disable_header:hover{
+    background:  #00273a !important;
+    }
+::ng-deep.mat-expansion-indicator::after{
+    color: white !important;
+}
+::ng-deep.mat-expansion-panel-header.mat-expanded:focus{
+    background-color:  #00273a !important; 
+    color: white !important;
+}
+::ng-deep.mat-expansion-panel-header.mat-expanded:hover{
+    background-color:  #00273a !important; 
+    color: white !important;
+}
+
+::ng-deep.mat-expansion-panel-body {
+    padding: 16px 24px 16px !important;
+    background-color: #00273a;
+}
+.title{
+    font-size: 1.0rem;
+}
+.subMenu{
+    /* background-color:#c2c2be ;
+    color: white;
+    height: 10%;
+    font-size: 1.4rem;
+    box-shadow: 0px 1px 10px #436171; */
+    background-color:white ;
+    color:  #5e5e5e;
+    height: 10%;
+    font-size: 1.4rem;
+    border-color: #8b8a8a;
+  border-width:0.1px;
+  border-style:solid;
+  border-right:none;
+  border-left: none;
+}
+.col-md-9{
+    background-color: #f8f4f4;
+}
+img{
+    width: 17em;
+       margin: 1em;
+    margin-right: 2.5em;
+}
+.nituk a{
+    color: #88a9b0 !important;
+    text-decoration: none;
+   margin:0%;
+    opacity: 0.7;
+}

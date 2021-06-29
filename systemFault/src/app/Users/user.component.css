@@ -1,0 +1,99 @@
+table {
+    width: 100%;
+  }
+
+  th.mat-header-cell {
+    text-align: right;  
+    font-weight: bold;
+    font-size: 15px;    
+    background-color: gainsboro;
+    color:#02283b;    
+    font-size: 15px;
+    border-top:#898d8d;
+
+}
+
+td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
+    padding: 12px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+th.mat-sort-header-sorted {
+    color: white;
+  }
+  .mat-paginator-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start !important;
+    min-height: 56px;
+    padding: 0 8px;
+    flex-wrap: wrap-reverse;
+    width: 100%;
+}
+ .mat-paginator-page-size-label{
+  visibility: hidden !important;
+}
+.mat-paginator-page-size-label::after{
+  visibility: visible !important;
+content: "מס רשומות" !important;
+margin: 0 4px !important;
+}
+/* //try */
+/* Structure */
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 50%;
+}
+
+::ng-deep.mat-sort-header-stem
+{
+  background-color: aliceblue !important;
+}
+::ng-deep.mat-sort-header-pointer-left{
+  background-color: aliceblue !important;
+}
+::ng-deep.mat-sort-header-pointer-right{
+    background-color: aliceblue !important;
+  }
+  .header {
+    padding: 4px;
+  }
+  
+  .filter {
+    display: block;
+  }
+  ::ng-deep.mat-sort-header-stem
+  {
+    background-color: aliceblue !important;
+  }
+  ::ng-deep.mat-sort-header-pointer-left{
+    background-color: aliceblue !important;
+  }  
+  ::ng-deep th *.mat-form-field-wrapper{
+    width: 5vw;
+  }  
+  ::ng-deep .container{
+    direction: rtl !important;
+  }
+  ::ng-deep th *.mat-form-field-wrapper{
+    width: 3.5vw;
+  }  
+  /* 111 */
+  /* ::ng-deep .mt-4.container{
+    margin-right: 3px ;
+  } */
+  ::ng-deep .mat-elevation-z8{
+    width:73vw !important;
+    box-shadow: none;
+  }
+  ::ng-deep .mat-cell.cdk-column-taalich.mat-column-taalich.ng-star-inserted{
+    padding-right: 2px !important;
+  }
+  .tableButton{
+  color:#898d8d;
+  background-color: white;
+  }

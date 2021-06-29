@@ -1,0 +1,131 @@
+<div class=" mt-2 container">
+
+</div>
+<div class="mat-elevation-z8">
+
+  <table matSort mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="nvUserName">
+          <th class="header" mat-header-cell *matHeaderCellDef>שם משתמש
+            <mat-form-field class="filter" floatLabel="never">
+              <mat-label>חיפוש </mat-label>
+              <input matInput [formControl]="nvUserNameFilter">
+            </mat-form-field>
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.nvUserName}} </td>
+        </ng-container>
+    <ng-container matColumnDef="nvFirstName">
+      <th class="header" mat-header-cell *matHeaderCellDef> שם פרטי
+        <mat-form-field class="filter" floatLabel="never">
+          <mat-label>חיפוש</mat-label>
+          <input matInput [formControl]="nvFirstNameFilter">
+        </mat-form-field>
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.nvFirstName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="nvLastName">
+      <th class="header" mat-header-cell *matHeaderCellDef> שם משפחה
+        <mat-form-field class="filter" floatLabel="never">
+          <mat-label>חיפוש</mat-label>
+          <input matInput [formControl]="nvLastNameFilter">
+        </mat-form-field>
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.nvLastName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="nvID">
+        <th class="header" mat-header-cell *matHeaderCellDef>ת"ז
+          <mat-form-field class="filter" floatLabel="never">
+            <mat-label>חיפוש</mat-label>
+            <input matInput [formControl]="nvIDFilter">
+          </mat-form-field>
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.nvID}} </td>
+      </ng-container>
+    <ng-container matColumnDef="nvPassword">
+      <th class="header" mat-header-cell *matHeaderCellDef> סיסמא
+        <mat-form-field class="filter" floatLabel="never">
+          <mat-label>חיפוש</mat-label>
+          <input matInput [formControl]="nvPasswordFilter">
+        </mat-form-field>
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.nvPassword}} </td>
+    </ng-container>
+    <ng-container matColumnDef="nvEmail">
+      <th class="header" mat-header-cell *matHeaderCellDef> מייל
+        <mat-form-field class="filter" floatLabel="never">
+          <mat-label>חיפוש</mat-label>
+          <input matInput [formControl]="nvEmailFilter">
+        </mat-form-field>
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.nvEmail}} </td>
+    </ng-container>
+    <ng-container matColumnDef="nvTel">
+        <th class="header" mat-header-cell *matHeaderCellDef>טלפון
+          <mat-form-field class="filter" floatLabel="never">
+            <mat-label>חיפוש</mat-label>
+            <input matInput [formControl]="nvTelFilter">
+          </mat-form-field>
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.nvTel}} </td>
+      </ng-container>
+    <ng-container matColumnDef="nvDepartmentName">
+        <th class="header" mat-header-cell *matHeaderCellDef>אגף
+          <mat-form-field class="filter" floatLabel="never">
+            <mat-label> חיפוש</mat-label>
+            <input matInput [formControl]="nvDepartmentNameFilter">
+          </mat-form-field>
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.nvDepartmentName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="nvRoomName">
+          <th class="header" mat-header-cell *matHeaderCellDef>חדר
+            <mat-form-field class="filter" floatLabel="never">
+              <mat-label>חיפוש</mat-label>
+              <input matInput [formControl]="nvRoomNameFilter">
+            </mat-form-field>
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.nvRoomName}} </td>
+        </ng-container>
+        <ng-container matColumnDef="nvFloorName">
+            <th class="header" mat-header-cell *matHeaderCellDef>קומה
+              <mat-form-field class="filter" floatLabel="never">
+                <mat-label>חיפוש</mat-label>
+                <input matInput [formControl]="nvFloorNameFilter">
+              </mat-form-field>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.nvFloorName}} </td>
+          </ng-container>
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <button md-raised-button class="matraised-Yellow tableButton" (click)="Edit(element)">
+            <i class="material-icons">
+                explicit
+                </i>
+
+        </button>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <button md-raised-button class="matraised-Green tableButton" (click)="delete(element.iUserId)">
+          <mat-icon aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10]" showFirstLastButtons></mat-paginator>
+
+</div>
+
+
+
+
+
+

@@ -1,0 +1,27 @@
+<!-- <mat-card>
+<h3>כניסה</h3>
+<span class="ui-float-label">
+        <input id="float-input1" [(ngModel)]="name" type="text" size="30"  name="nvFirstName" pInputText> 
+        <label for="float-input1" >שם משתמש</label></span>
+        <br><br>{{this.name}}
+        {{this.password}}
+        <span class="ui-float-label">
+        <input id="float-input2" type="text" size="30"  [(ngModel)]="password" name="nvPassword" pInputText> 
+        <label for="float-input2">סיסמא</label>
+    </span>
+
+<br>
+<button class="btn btn-danger" (click)="Login()">כניסה</button>
+</mat-card> -->
+<img class="img-logo-enter" src="/assets/img/6.jpg">
+<mat-card class="login">
+    <h3>כניסה</h3>
+    <mat-form-field>
+        <input type="text" [(ngModel)]="name" matInput placeholder="שם משתמש" name="nvName">
+    </mat-form-field><br>
+    <mat-form-field>
+        <input type="password" [(ngModel)]="password" matInput placeholder="סיסמא" name="nvPassword">
+    </mat-form-field><br>
+    <div ><a style="text-decoration:none;"[routerLink]="['/re-password']">שכחתי את הסיסמא</a></div><br>
+    <button mat-raised-button  class="matraised-pink login-button" (click)="Login()">לחץ כדי להכנס</button>
+</mat-card>

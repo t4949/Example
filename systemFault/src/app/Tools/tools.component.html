@@ -1,0 +1,116 @@
+<div class=" mt-2 container" >
+
+</div>
+
+<div class="mat-elevation-z8" >
+    <!-- // nvToolName: '',iNumFault:'', dcreateDate: '', nvCompanyName: '',
+    // nvKindToolName: '', nvDepartmentName: '', nvRoomName: '', nvFloorName: '' -->
+  <table matSort mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="nvToolName">
+          <th class="header" mat-header-cell *matHeaderCellDef>שם מכשיר
+            <mat-form-field class="filter" floatLabel="never">
+              <mat-label>חיפוש</mat-label>
+              <input matInput [formControl]="nvToolNameFilter">
+            </mat-form-field>
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.nvToolName}} </td>
+        </ng-container>
+    <ng-container matColumnDef="iNumFault">
+      <th class="header" mat-header-cell *matHeaderCellDef> מספר תקלות
+        <mat-form-field class="filter" floatLabel="never">
+          <mat-label>חיפוש</mat-label>
+          <input matInput [formControl]="iNumFaultFilter">
+        </mat-form-field>
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.iNumFault}} </td>
+    </ng-container>
+    <ng-container matColumnDef="dcreateDate">
+      <th class="header" mat-header-cell *matHeaderCellDef>תאריך קניה
+        <mat-form-field class="filter" floatLabel="never">
+          <mat-label>חיפוש</mat-label>
+          <input matInput [formControl]="dcreateDateFilter">
+        </mat-form-field>
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.dcreateDate}} </td>
+    </ng-container>
+    <ng-container matColumnDef="nvCompanyName">
+        <th class="header" mat-header-cell *matHeaderCellDef>חברה
+          <mat-form-field class="filter" floatLabel="never">
+            <mat-label>חיפוש</mat-label>
+            <input matInput [formControl]="nvCompanyNameFilter">
+          </mat-form-field>
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.nvCompanyName}} </td>
+      </ng-container>
+    <ng-container matColumnDef="nvKindToolName">
+      <th class="header" mat-header-cell *matHeaderCellDef> סוג
+        <mat-form-field class="filter" floatLabel="never">
+          <mat-label>חיפוש</mat-label>
+          <input matInput [formControl]="nvKindToolNameFilter">
+        </mat-form-field>
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.nvKindToolName}} </td>
+    </ng-container>
+   
+    <ng-container matColumnDef="nvDepartmentName">
+        <th class="header" mat-header-cell *matHeaderCellDef>אגף
+          <mat-form-field class="filter" floatLabel="never">
+            <mat-label> חיפוש</mat-label>
+            <input matInput [formControl]="nvDepartmentNameFilter">
+          </mat-form-field>
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.nvDepartmentName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="nvRoomName">
+          <th class="header" mat-header-cell *matHeaderCellDef>חדר
+            <mat-form-field class="filter" floatLabel="never">
+              <mat-label>חיפוש</mat-label>
+              <input matInput [formControl]="nvRoomNameFilter">
+            </mat-form-field>
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.nvRoomName}} </td>
+        </ng-container>
+        <ng-container matColumnDef="nvFloorName">
+            <th class="header" mat-header-cell *matHeaderCellDef>קומה
+              <mat-form-field class="filter" floatLabel="never">
+                <mat-label>חיפוש</mat-label>
+                <input matInput [formControl]="nvFloorNameFilter">
+              </mat-form-field>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.nvFloorName}} </td>
+          </ng-container>
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <button md-raised-button class="matraised-Yellow tableButton" (click)="Edit(element)">
+            <i class="material-icons">
+                explicit
+                </i>
+        </button>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <button md-raised-button class="matraised-Green tableButton" (click)="delete(element.iToolId)">
+          <mat-icon aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
+
+</div>
+
+
+
+
+
+
+

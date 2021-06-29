@@ -1,0 +1,28 @@
+
+<div class="form">
+<div></div>
+  <div class="row">
+    <div class="col-md-4 container">
+      <div *ngIf="this.sysRow.iSysTableRowId==-1"><p>הוספת ערך</p></div>
+      <div *ngIf="this.sysRow.iSysTableRowId!=-1"><p>עריכת ערך</p></div>
+      <mat-form-field >
+          <input required type="text" [(ngModel)]="this.sysRow.nvSysTableRowName" matInput placeholder="הכנס ערך"  name="nvSysTableRowName">
+        </mat-form-field><br>
+       
+  </div>
+  </div>
+  <div class="wrapButton">
+    <button  mat-raised-button  class="matraised-pink" (click)="AddNew(dialogData)">שמירה</button>
+  <div>
+    <button mat-raised-button class="matraised-Yellow mr-2"  (click)="closeWindow()"
+      cdkFocusInitial>ביטול</button>
+  </div>
+  </div>
+  <!-- <div class="d-flex justify-content-end mt-2">
+   <button  mat-raised-button  class="matraised-pink" (click)="AddNew(dialogData)">שמירה</button>
+ <div *ngIf="this.dialogData">
+   <button mat-raised-button class="matraised-Yellow mr-2"  (click)="closeWindow()"
+     cdkFocusInitial>ביטול</button>
+ </div>
+</div> -->
+</div>

@@ -1,0 +1,13 @@
+::ng-deep.mat-card{
+    box-shadow: none;
+    
+}
+::ng-deep .register{
+  text-align: center;
+  background-color: white;
+  /* margin-top: 10vh !important;
+  height: 60vh!important; */
+}
+::ng-deep#iconUser{	
+  width: 10px;	
+}

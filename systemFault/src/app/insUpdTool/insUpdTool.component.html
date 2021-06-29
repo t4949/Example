@@ -1,0 +1,147 @@
+<!-- // nvToolName: '',iNumFault:'', dcreateDate: '', nvCompanyName: '',
+// nvKindToolName: '', nvDepartmentName: '', nvRoomName: '', nvFloorName: '' -->
+
+<form #loginForm="ngForm">
+  <div class="container register" #ngForm>
+    <div class="">
+      <!-- <mat-card> -->
+      <div class="row">
+        <div class="col-md-4">
+          <mat-form-field>
+            <input required type="text" [(ngModel)]="this.Tool.nvToolName" matInput placeholder="שם מכשיר"
+              name="nvToolName">
+          </mat-form-field>
+        </div>
+        <!-- <div class="col-md-4" *ngIf="!this.dialogData">
+            <mat-form-field>
+                <input required type="number" [(ngModel)]="this.Tool.iNumFault" matInput placeholder="מספר תקלות" name="iNumFault">
+              </mat-form-field><br>
+        </div> -->
+        <div class="col-md-4">
+          <mat-form-field class="example-full-width">
+            <input required type="text" placeholder="בחר סוג" aria-label="KindTool" matInput
+              [formControl]="KindToolControl" [matAutocomplete]="eee">
+            <mat-autocomplete #eee="matAutocomplete" [displayWith]="displayKindToolFn"
+              (optionSelected)='onSelectionChanged($event.option.value,5)'>
+              <mat-option *ngFor="let option of filteredKindToolOptions | async" [value]="option">
+                {{option.nvSysTableRowName}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field>
+            <!-- (dateChange)="fixTimeZone($event.value)" -->
+            <input type="datetime" matInput [(ngModel)]="this.Tool.dcreateDate" name="date" [matDatepicker]="picker"
+              placeholder="בחר תאריך" #date="ngModel">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <!-- <mat-error *ngif="Pniot.dPniaDate<today">תאריך לא חוקי</mat-error> -->
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <mat-form-field class="example-full-width">
+            <input required type="text" placeholder="בחר חדר" aria-label="Assignee" matInput
+              [formControl]="roomsControl" [matAutocomplete]="aaa">
+            <mat-autocomplete #aaa="matAutocomplete" [displayWith]="displayRoomFn"
+              (optionSelected)='onSelectionChanged($event.option.value,1)'>
+              <mat-option *ngFor="let option of filteredRoomOptions | async" [value]="option">
+                {{option.nvSysTableRowName}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field class="example-full-width">
+            <input required type="text" placeholder="בחר קומה" aria-label="Assignee" matInput
+              [formControl]="floorsControl" [matAutocomplete]="bbb">
+            <mat-autocomplete #bbb="matAutocomplete" [displayWith]="displayFloorFn"
+              (optionSelected)='onSelectionChanged($event.option.value,2)'>
+              <mat-option *ngFor="let option of filteredFloorOptions | async" [value]="option">
+                {{option.nvSysTableRowName}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field class="example-full-width">
+            <input required type="text" placeholder="בחר אגף" aria-label="Assignee" matInput
+              [formControl]="departmentControl" [matAutocomplete]="ccc">
+            <mat-autocomplete #ccc="matAutocomplete" [displayWith]="displayDepartmentFn"
+              (optionSelected)='onSelectionChanged($event.option.value,3)'>
+              <mat-option *ngFor="let option of filteredDepartmentOptions | async" [value]="option">
+                {{option.nvSysTableRowName}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <mat-form-field class="example-full-width">
+            <input required type="text" placeholder="בחר חברה" aria-label="Company" matInput
+              [formControl]="CompanyControl" [matAutocomplete]="ddd">
+            <mat-autocomplete #ddd="matAutocomplete" [displayWith]="displayCompanyFn"
+              (optionSelected)='onSelectionChanged($event.option.value,4)'>
+              <mat-option *ngFor="let option of filteredCompanyOptions | async" [value]="option">
+                {{option.nvSysTableRowName}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </div>
+        <!-- <div class="col-md-4">
+                <mat-form-field class="example-full-width">
+                  <input required type="text" placeholder="בחר סוג" aria-label="KindTool" matInput [formControl]="KindToolControl" [matAutocomplete]="eee">
+                  <mat-autocomplete  #eee="matAutocomplete" [displayWith]="displayKindToolFn" (optionSelected)='onSelectionChanged($event.option.value,5)'>
+                    <mat-option *ngFor="let option of filteredKindToolOptions | async" [value]="option">
+                      {{option.nvSysTableRowName}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </div> -->
+        <div class="col-md-4" *ngIf="this.dialogData">
+          <mat-form-field>
+            <input required type="number" [(ngModel)]="this.Tool.iNumFault" matInput placeholder="מספר תקלות"
+              name="iNumFault">
+          </mat-form-field><br>
+        </div>
+      </div>
+
+      <div class="mt-5 pl-5 container">
+        <div mat-dialog-actions class="d-flex justify-content-end mt-2">
+          <!-- *ngIf="this.dialogData" -->
+          <div>
+            <button [disabled]="loginForm.form.invalid" mat-raised-button class="matraised-Yellow mr-2"
+              (click)="SaveTool()" cdkFocusInitial>שמירה</button>
+          </div>
+          <button *ngIf="this.dialogData" mat-raised-button class="matraised-pink mr-2" (click)="closeWindow()"
+            cdkFocusInitial>ביטול</button>
+        </div>
+      </div>
+
+
+
+      <!-- </mat-card> -->
+    </div>
+    <div class="">
+    </div>
+  </div>
+</form>
+
+<!-- public iUserId: number = -1;
+      public nvPassword: string = null;
+      public nvLastName: string = null;
+      public nvFirstName: string = null;
+     --------select of roles only to the manage that add user----- public iRoleId: number = null;
+      public nvEmail: string = null;
+      public nvUserName: string = null;
+      public nvTel: string = null;
+      public iFloor: number = null;
+      public nvRoom: string = null;
+      public nvDepartment: string = null;
+      public nvID: string = null;
+      public iStatusRow: number = null; -->
